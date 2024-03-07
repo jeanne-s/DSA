@@ -14,7 +14,7 @@ from sklearn.manifold import MDS
 
 sys.path.append('../')
 from models import get_model_from_name
-from data import get_wikitext_103_sample
+from data import get_data_sample
 from activations import get_residual_stream_activations_for_layer_wise_dmd
 
 
@@ -72,6 +72,7 @@ def apply_dmd(models: List,
     mds_df = plot_dmd_mds(sims_dmd,
                  model_types,
                  fig_file_name=fig_file_name)
+    #mds_df.to_pickle(f"{fig_file_name}.pkl")
     
     return sims_dmd, model_types, mds_df
 
